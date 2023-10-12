@@ -1,19 +1,23 @@
+import { SearchButton, SearchForm, SearchInput } from "./Searchbar.styled";
+
 export const Searchbar = ({onSubmitForm}) => {
    return <header>
-  <form onSubmit={evt => {
+  <SearchForm onSubmit={evt => {
          evt.preventDefault();
                onSubmitForm(evt.target[1].value)
        }}  >
-       <button type="submit" >
+       <SearchButton type="submit" >
       Search
-    </button>
-       <input 
+    </SearchButton>
+       <SearchInput 
       type="text"
       autoComplete="off"
       autoFocus
       placeholder="Search images and photos"
     />
-  </form>
+  </SearchForm>
 </header>
 }
+
+
 

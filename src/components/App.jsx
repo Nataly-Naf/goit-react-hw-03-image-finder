@@ -5,6 +5,8 @@ import { Searchbar } from './Searchbar/Searchbar';
 import { Button } from './Button/Button';
 import toast, { Toaster } from 'react-hot-toast';
 import { AudioItem } from './Loader/Loader';
+import { AppS } from './App.styled';
+
 export class App extends Component {
   state = {
     pictures: [],
@@ -55,16 +57,18 @@ export class App extends Component {
   render() {
     const { loading, error } = this.state;
     return (
-      <div>
+      <AppS>
         <Searchbar onSubmitForm={this.onSubmitForm} />
         {loading && <AudioItem />}
 
         <ImageGallery onPictures={this.state.pictures} />
         {loading && <b>Loading pictures...</b>}
         {error && <b>Whoops! Error! Please reload this page!!!</b>}
-        <Button onLoadMoreBtn={this.loadMoreHandler} />
+        {this.state.pictures.length > 0 && (
+          <Button onLoadMoreBtn={this.loadMoreHandler} />
+        )}
         <Toaster position="top-right" />
-      </div>
+      </AppS>
     );
   }
 }

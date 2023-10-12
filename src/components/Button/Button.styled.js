@@ -15,7 +15,8 @@ height:20px;
   outline: solid grey 1px;
 
   &:hover {
- background-color:lightgreen;
+ background-color:#3f51b5;
+ color: white;
   }
 
 `
